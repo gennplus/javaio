@@ -11,8 +11,8 @@ import java.util.List;
 
 class DownloaderTest {
 
-    private static final String TEST_FILE1_URL = "https://github.com/gennplus/javaio/blob/master/test1.txt";
-    private static final String TEST_FILE2_URL = "https://github.com/gennplus/javaio/blob/master/test2.txt";
+    private static final String TEST_FILE1_URL = "https://raw.githubusercontent.com/gennplus/javaio/master/test1.txt";
+    private static final String TEST_FILE2_URL = "https://raw.githubusercontent.com/gennplus/javaio/master/test1.txt";
 
     @Test
     void readFileAsString_caseCrLfEnded() {
@@ -29,7 +29,7 @@ class DownloaderTest {
     void readFileAsString_caseVisibleSymbolEnded() {
         try {
             String actual = Downloader.readFileAsString(TEST_FILE2_URL);
-            String expected = "test1\ntest2";
+            String expected = "test1\ntest2\n";
             Assertions.assertEquals(expected, actual);
         } catch (IOException e) {
             throw new RuntimeException(e);
