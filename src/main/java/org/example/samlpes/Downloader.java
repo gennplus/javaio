@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Downloader {
+
+    // N.B. last symbol is always CR LF as we append every time we read a string.
     public static String readFileAsString(String urlAsString) throws IOException {
         URL url = new URL(urlAsString);
         InputStream in = url.openStream();
