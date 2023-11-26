@@ -17,8 +17,15 @@ class CharsConverterTest {
 
     @Test
     void charToStrings() {
-        List<String> actual = CharsConverter.charToStrings("test1\r\ntest2\r\n".toCharArray());
+        List<String> actual = CharsConverter.charToListOfStrings("test1\r\ntest2\r\n".toCharArray());
         List<String> expected = Arrays.asList("test1", "test2");
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void charToArrayOfStrings() {
+        String[] actual = CharsConverter.charToArrayOfStrings("test1\r\ntest2\r\n".toCharArray());
+        String[] expected = new String[] {"test1", "test2"};
+        Assertions.assertArrayEquals(expected, actual);
     }
 }
