@@ -22,4 +22,11 @@ class MyFileReaderTest {
         List<String> expected = Arrays.asList("test1", "test2");
         Assertions.assertEquals(actual, expected);
     }
+
+    @Test
+    void readToArrayOfStrings() {
+        String[] actual = MyFileReader.readToArrayOfStrings(new File("test1.txt"));
+        String[] expected = new String[]{"test1", "test2"};
+        Assertions.assertArrayEquals(actual, expected);
+    }
 }
