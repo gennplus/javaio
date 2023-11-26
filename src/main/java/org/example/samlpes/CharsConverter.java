@@ -21,7 +21,7 @@ public class CharsConverter {
         return String.valueOf(chars);
     }
 
-    public static List<String> charToStrings(char[] chars) {
+    public static List<String> charToListOfStrings(char[] chars) {
         BufferedReader br = new BufferedReader(new CharArrayReader(chars));
 
         List<String> content = new ArrayList<>();
@@ -35,5 +35,21 @@ public class CharsConverter {
         }
 
         return content;
+    }
+
+    public static String[] charToArrayOfStrings(char[] chars) {
+        BufferedReader br = new BufferedReader(new CharArrayReader(chars));
+
+        String line;
+        List<String> strings = new ArrayList<>();
+        try {
+            while ((line = br.readLine()) != null) {
+                strings.add(line);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return strings.toArray(new String[0]);
     }
 }
