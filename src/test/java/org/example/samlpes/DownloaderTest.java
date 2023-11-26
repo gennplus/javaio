@@ -41,7 +41,7 @@ class DownloaderTest {
         try {
             List<String> actual = Downloader.readFile(TEST_FILE1_URL);
             List<String> expected = Arrays.asList("test1", "test2");
-            Assertions.assertEquals(actual, expected);
+            Assertions.assertEquals(expected, actual);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
