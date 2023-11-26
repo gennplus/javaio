@@ -1,7 +1,6 @@
 package org.example.samlpes;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,4 +31,20 @@ public class MyFileReader {
         }
         return content;
     }
+
+    public static String[] readToArrayOfStrings(File file) {
+        List<String> lines = new LinkedList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                lines.add(line);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return lines.toArray(new String[0]);
+    }
+
 }
