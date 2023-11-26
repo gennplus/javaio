@@ -7,6 +7,11 @@ import java.util.List;
 
 public class MyFileReader {
 
+    private MyFileReader() throws IllegalAccessException {
+        throw new IllegalAccessException(String
+                .format("Service class %s could not be instantiated", this.getClass().getName()));
+    }
+
     // N.B. for some reason CRLF is added to the end of file.
     public static String readToString(File file) {
         String content = "";

@@ -7,6 +7,11 @@ import java.util.List;
 
 public class Downloader {
 
+    private Downloader() throws IllegalAccessException {
+        throw new IllegalAccessException(String
+                .format("Service class %s could not be instantiated", this.getClass().getName()));
+    }
+
     // N.B. last symbol is always CR LF as we append every time we read a string.
     public static String readFileAsString(String urlAsString) throws IOException {
         URL url = new URL(urlAsString);
