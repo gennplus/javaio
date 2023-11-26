@@ -29,4 +29,11 @@ class MyFileReaderTest {
         String[] expected = new String[]{"test1", "test2"};
         Assertions.assertArrayEquals(actual, expected);
     }
+
+    @Test
+    void readToArrayOfChars() {
+        char[] actual = MyFileReader.readToArrayOfChars(new File("test1.txt"));
+        char[] expected = "test1\r\ntest2\r\n".toCharArray();
+        Assertions.assertArrayEquals(actual, expected);
+    }
 }

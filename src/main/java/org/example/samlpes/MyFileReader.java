@@ -47,4 +47,19 @@ public class MyFileReader {
         return lines.toArray(new String[0]);
     }
 
+    public static char[] readToArrayOfChars(File file) {
+        try (Reader reader = new FileReader(file)) {
+            char[] buffer = new char[1024]; // You can adjust the buffer size as needed
+            StringBuilder stringBuilder = new StringBuilder();
+            int charsRead;
+
+            while ((charsRead = reader.read(buffer)) != -1) {
+                stringBuilder.append(buffer, 0, charsRead);
+            }
+
+            return stringBuilder.toString().toCharArray();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
