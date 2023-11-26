@@ -1,5 +1,11 @@
 package org.example.samlpes;
 
+import java.io.BufferedReader;
+import java.io.CharArrayReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class CharsConverter {
     private CharsConverter() throws IllegalAccessException {
         throw new IllegalAccessException(String
@@ -15,4 +21,19 @@ public class CharsConverter {
         return String.valueOf(chars);
     }
 
+    public static List<String> charToStrings(char[] chars) {
+        BufferedReader br = new BufferedReader(new CharArrayReader(chars));
+
+        List<String> content = new ArrayList<>();
+        String line;
+        try {
+            while ((line = br.readLine()) != null) {
+                content.add(line);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return content;
+    }
 }
